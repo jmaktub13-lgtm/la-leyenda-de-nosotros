@@ -2,7 +2,7 @@
 <html lang="es"><head><meta charset="utf-8"><title>La Leyenda de Nosotros</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script></head>
 <body>
 <div id="game"></div>
@@ -32,4 +32,4 @@
 <div id="err" class="ov"><h2>No se pudo cargar</h2><p id="errt"></p></div>
 <script>setTimeout(()=>{if(!window.__ok){errt.textContent='No se cargó el motor 3D. Abre el juego con un servidor (no con doble clic), con internet, en Chrome o Edge.';err.classList.add('on')}},9000);
 addEventListener('error',e=>{if(!window.__ok||1){errt.textContent=(e.message||'Error')+' — recarga la página.';err.classList.add('on')}});</script>
-<script type="module" src="js/main.js"></script></body></html>
+<script type="module" src="main.js"></script></body></html>
