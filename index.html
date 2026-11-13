@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><title>La Leyenda de Nosotros</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"}}</script></head>
+<body>
+<div id="game"></div>
+<div id="hud"><div id="stats"><span id="hearts"></span><span id="frag"></span><span id="items"></span></div>
+<div id="quest"></div><div id="inv"></div><div id="hint">Haz clic en la pantalla para activar la cámara (o arrastra con clic derecho)</div>
+<div id="prompt"></div><div id="msg"></div></div>
+<div id="title" class="ov on"><h1>LA LEYENDA<br>DE NOSOTROS</h1><p class="sub">Una aventura para Madiel</p>
+<button id="start">Comenzar la aventura</button>
+<label class="file">♪ Cargar la canción (opcional, también se puede después)<input class="songfile" type="file" accept="audio/*" hidden></label><p class="songname"></p>
+<p class="tiny">Chrome o Edge · Teclado y ratón · Activa el sonido</p></div>
+<div id="loading" class="ov on"><h2>Cargando el reino…</h2><p>Si esta pantalla no desaparece, revisa tu conexión (Three.js se carga por internet).</p></div>
+<div id="trans" class="ov"><h1 id="t-t"></h1><p id="t-s" class="sub"></p></div>
+<div id="pause" class="ov"><h2>Pausa</h2><button id="resume">Continuar</button><button id="rlevel">Reiniciar nivel</button><button id="rgame">Reiniciar aventura</button><button id="ctl">Controles</button>
+<div id="controls">W A S D / Flechas: mover · Shift: correr · Espacio: saltar<br>E: interactuar · Ratón: cámara · Clic izquierdo: espada · Esc: pausa</div></div>
+<div id="riddle" class="ov"><div class="card"><h2>El Acertijo Final</h2>
+<p class="poem">Dos anillos, un vestido blanco<br>y un nombre que empieza con C.<br>Una canción para bailar abrazadas<br>el día en que digamos «sí».</p>
+<div id="clues"></div><input id="ans" placeholder="Escribe el nombre de la canción…" autocomplete="off">
+<button id="send">Responder</button><button id="back">Volver a mirar las pistas</button>
+<label class="file">♪ Seleccionar archivo de audio<input class="songfile" type="file" accept="audio/*" hidden></label><p class="songname"></p><p id="rmsg"></p></div></div>
+<div id="flash"></div>
+<div id="final"><p>Madiel, desde aquella noche del 8 de agosto, cuando nos quedamos hablando hasta el amanecer, comenzó una historia que quiero seguir escribiendo contigo.</p>
+<p>Aunque hoy Colombia y Panamá nos separen, tengo la certeza de que algún día podremos estar juntas, mirarnos a los ojos y celebrar todo lo que hemos construido.</p>
+<p>Esta aventura termina aquí, pero la nuestra apenas comienza.</p>
+<p class="last">Que sepas que algún día bailaremos esta canción en nuestra boda.</p>
+<div id="end"><h2>La Leyenda de Nosotros</h2><button onclick="location.reload()">Volver a jugar</button>
+<label class="file">♪ Elegir canción<input class="songfile" type="file" accept="audio/*" hidden></label></div></div>
+<div id="err" class="ov"><h2>No se pudo cargar</h2><p id="errt"></p></div>
+<script>setTimeout(()=>{if(!window.__ok){errt.textContent='No se cargó el motor 3D. Abre el juego con un servidor (no con doble clic), con internet, en Chrome o Edge.';err.classList.add('on')}},9000);
+addEventListener('error',e=>{if(!window.__ok||1){errt.textContent=(e.message||'Error')+' — recarga la página.';err.classList.add('on')}});</script>
+<script type="module" src="js/main.js"></script></body></html>
