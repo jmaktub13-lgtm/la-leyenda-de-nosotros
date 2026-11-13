@@ -138,7 +138,7 @@ function L1() {
   ground(75, tex('#3f7d2a', '#a5d85a', 26)); mountains(0x5d8a6a, 130);
   const wt = tex('#2f86c8', '#bfe6ff', 8, 400); const w = mk(new THREE.PlaneGeometry(90, 4.5), M(0xffffff, { map: wt, transparent: true, opacity: .85, flatShading: false, roughness: .2 }), 0, .04, -10); w.rotation.x = -Math.PI / 2; U.push(dt => wt.offset.x += dt * .1);
   addBox(-23, -10, 42, 4.4, 6); addBox(23, -10, 42, 4.4, 6); solid(0, -10, 4, 5, .3, M(0x9a6a3a));
-  const keep = [[0, 6, 5], [-12, 8, 6], [12, 10, 6], [-14, -22, 6], [14, -22, 7], [-4, -22, 8], [-26, -28, 5], [28, -4, 5], [0, -4, 5], [0, -10, 6], [0, 22, 6], [0, 14, 4]];
+  const keep = [[0, 6, 5], [-12, 8, 6], [12, 10, 6], [-14, -22, 6], [14, -22, 7], [-4, -22, 8], [-24, -20, 5], [28, -4, 5], [0, -4, 5], [0, -10, 6], [0, 22, 6], [0, 14, 4]];
   for (let i = 0; i < 70; i++) { const a = rnd() * 6.283, r = 6 + rnd() * 26, x = Math.cos(a) * r, z = Math.sin(a) * r; if (Math.abs(z + 10) < 4 || keep.some(k => Math.hypot(x - k[0], z - k[1]) < k[2])) continue; tree(x, z, .8 + rnd() * .6, rnd() > .5 ? 0x2e7d32 : 0x3b8f3a); }
   for (let i = 0; i < 30; i++) { const a = i / 30 * 6.283, x = Math.cos(a) * 35, z = Math.sin(a) * 35; tree(x, z, 1.5, 0x1f5a2a); }
   house(-12, 8, 0xe8d8b0, 0x2e7d32); house(12, 10, 0xd9c79a, 0xb0432f); house(-14, -22, 0xe8d8b0, 0x2e7d32);
@@ -147,7 +147,7 @@ function L1() {
   I.push({ x: 0, z: 6, r: 3, label: 'Hablar con Kira', on: true, use() { A.sfx('coin'); say('<b>Kira:</b> ¡Link! Los recuerdos de una noche muy especial se dispersaron por el bosque. Encuentra <b>tres fragmentos</b>: un cofre en la colina, una luz entre los árboles y el secreto de las piedras de las hadas. Cruza el puente del arroyo.', 9000); } });
   solid(0, -4, 6, 1, .8, M(0x7a5230)); solid(-5, 3, 1, 4, .8, M(0x7a5230));
   solid(14, -22, 6, 6, 1.2, M(0x8a8f99)); solid(14, -17.6, 3, 2, .6, M(0x9aa0aa)); chest(14, -22, 1.2, () => fragObj(14, -22, 2.4));
-  fragObj(-26, -28, 1.2); sign(-4, -17, '«Las hadas despiertan primero al fuego, luego al agua y, por último, al bosque.»', 'Leer letrero de las hadas');
+  fragObj(-24, -20, 1.2); sign(-4, -17, '«Las hadas despiertan primero al fuego, luego al agua y, por último, al bosque.»', 'Leer letrero de las hadas');
   seqPuzzle([{ x: -9, z: -22, c: 0xff3b3b, n: 'Piedra roja (fuego)', geo: new THREE.ConeGeometry(.4, .8, 6) }, { x: -4, z: -25, c: 0x3b8bff, n: 'Piedra azul (agua)', geo: new THREE.SphereGeometry(.4, 8, 8) }, { x: 1, z: -22, c: 0x3bff6b, n: 'Piedra verde (bosque)', geo: new THREE.OctahedronGeometry(.45) }],
     [0, 1, 2], () => { say('Las hadas despiertan y dejan caer un fragmento.', 3000); fragObj(-4, -21, 1.6); }, 'Las piedras se apagan… el orden no era el de las hadas.');
   G.onFrag = () => { quest(`Recupera los fragmentos de recuerdos (${G.lf}/3): cofre en la colina, luz entre los árboles y las piedras de las hadas.`); if (G.lf >= 3) { quest('¡Lo lograste! Cruza el portal al este.'); portal(28, -4, 'Cruzar el portal', () => goLevel(2)); } };
